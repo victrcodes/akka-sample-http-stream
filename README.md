@@ -9,9 +9,6 @@ A very simple example demonstrating functionality of ```akka-streams``` and ```a
 should generate response in the command line
 
 test
-
 test
-
 test
-
 ...
