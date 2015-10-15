@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Akka Sample Http Stream</title>
+</head>
+<body>
+	<div>
+		<h2>Server</h2>
+		<pre>Server.scala</pre> listens on url <pre>http://localhost:8200/stream</pre> and once request is received - starts sending chunked response (text "test") continuously every 1 second.
+	</div>
+	<div>
+		<h2>Client</h2>
+		<pre>Client.scala</pre> launches <pre>Server</pre> in a new thread, then sends a request to the url <pre>http://localhost:8200/stream</pre>, then continuously prints chunked response to the command line.
+	</div>
+</body>
+</html>
