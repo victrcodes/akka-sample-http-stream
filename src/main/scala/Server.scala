@@ -1,10 +1,9 @@
 import akka.actor.ActorSystem
-import akka.stream.ActorMaterializer
-import akka.stream.scaladsl.{Source, Sink}
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model._
-import scala.concurrent.Future
+import akka.stream.ActorMaterializer
+import akka.stream.scaladsl.{Sink, Source}
 import scala.concurrent.duration._
 
 class Server extends Runnable {
@@ -21,7 +20,7 @@ class Server extends Runnable {
 				HttpResponse(entity = HttpEntity.Chunked(ContentTypes.`text/plain`, Source(0 seconds, 1 seconds, "test")))
 		}
 
-		val bindingFuture: Future[Http.ServerBinding] = serverSource.to(Sink.foreach { connection =>
+		serverSource.to(Sink.foreach { connection =>
 			connection handleWithSyncHandler requestHandler
 		}).run()
 
