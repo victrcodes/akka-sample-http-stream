@@ -7,7 +7,7 @@ object Client extends App {
 
 	new Thread(new Server).start()
 
-	implicit val system = ActorSystem("test")
+	implicit val system = ActorSystem("client")
 	import system.dispatcher
 
 	implicit val materializer = ActorMaterializer()
